@@ -5,17 +5,17 @@ class Game {
     this.gameEndScreen = document.getElementById("game-end");
     this.player = new Player(
       this.gameScreen,
-      200,
+      300,
       500,
-      100,
+      150,
       150,
       "../images/kopter.gif"
     );
-    this.height = 600;
-    this.width = 500;
+    this.height = 1200;
+    this.width = 700;
     this.obstacles = [];
     this.score = 0;
-    this.lives = 3;
+    this.lives = 5;
     this.scoreElement = document.getElementById("score");
     this.livesElement = document.getElementById("lives");
     this.gameIsOver = false;
@@ -87,7 +87,7 @@ class Game {
 
     // Create a new obstacle based on a random probability
     // when there is no other obstacles on the screen
-    if (Math.random() > 0.98 && this.obstacles.length < 2) {
+    if (Math.random() > 0.98 && this.obstacles.length < 3) {
       this.obstacles.push(new Obstacle(this.gameScreen));
     }
   }
