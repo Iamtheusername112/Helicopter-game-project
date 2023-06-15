@@ -9,13 +9,15 @@ class Game {
       500,
       150,
       150,
-      "../images/PSC.gif"
+      "../images/kopter.gif"
     );
     this.height = 1200;
     this.width = 700;
     this.obstacles = [];
     this.score = 0;
-    this.lives = 3;
+    this.lives = 5;
+    this.scoreElement = document.getElementById("score");
+    this.livesElement = document.getElementById("lives");
     this.gameIsOver = false;
   }
 
@@ -53,7 +55,7 @@ class Game {
       const obstacle = this.obstacles[i];
       obstacle.move();
 
-      // If the player's car collides with an obstacle
+      // If the player's Aircraft collides with an obstacle
       if (this.player.didCollide(obstacle)) {
         // Remove the obstacle element from the DOM
         obstacle.element.remove();
@@ -61,12 +63,14 @@ class Game {
         this.obstacles.splice(i, 1);
         // Reduce player's lives by 1
         this.lives--;
+        this.livesElement.innerHTML = this.lives;
         // Update the counter variable to account for the removed obstacle
         i--;
       } // If the obstacle is off the screen (at the bottom)
       else if (obstacle.top > this.height) {
         // Increase the score by 1
         this.score++;
+        this.scoreElement.innerHTML = this.score;
         // Remove the obstacle from the DOM
         obstacle.element.remove();
         // Remove obstacle object from the array
@@ -83,7 +87,7 @@ class Game {
 
     // Create a new obstacle based on a random probability
     // when there is no other obstacles on the screen
-    if (Math.random() > 0.98 && this.obstacles.length < 1) {
+    if (Math.random() > 0.98 && this.obstacles.length < 3) {
       this.obstacles.push(new Obstacle(this.gameScreen));
     }
   }
