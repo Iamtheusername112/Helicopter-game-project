@@ -22,13 +22,13 @@ window.onload = function () {
     startGame();
 
     //   This function begins to count score on the point of clicking the start botton
-    let scoreCounter = 0;
+    // let scoreCounter = 0;
 
-    setInterval(() => {
-      document.getElementById("score").innerHTML = `${scoreCounter}`;
-      //   n = n + 1;
-      scoreCounter++;
-    }, 1000);
+    // setInterval(() => {
+    //   document.getElementById("score").innerHTML = `${scoreCounter}`;
+    //   //   n = n + 1;
+    //   scoreCounter++;
+    // }, 1000);
   });
 
   restartButton.addEventListener("click", function () {
@@ -39,7 +39,6 @@ window.onload = function () {
   function startGame() {
     console.log("start game");
     game = new Game();
-
     game.start();
   }
 

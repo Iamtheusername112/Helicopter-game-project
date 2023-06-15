@@ -1,7 +1,7 @@
 class Player {
-  constructor(gameScreen, left, top, width, height, padding, imgSrc) {
+  constructor(gameScreen, left, top, width, height, imgSrc) {
     this.gameScreen = gameScreen;
-    this.padding = padding;
+    // this.padding = padding;
     this.left = left;
     this.top = top;
     this.width = width;
@@ -21,7 +21,7 @@ class Player {
   }
 
   move() {
-    // Update player's car position based on directionX and directionY
+    // Update player's Aircraft position based on directionX and directionY
     this.left += this.directionX;
     this.top += this.directionY;
 
@@ -39,7 +39,7 @@ class Player {
       this.top = this.gameScreen.offsetHeight - this.height - 10;
     }
 
-    // Update the player's car position on the screen
+    // Update the player's AirCraft position on the screen
     this.updatePosition();
   }
 
